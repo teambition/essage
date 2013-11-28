@@ -98,7 +98,7 @@
     // set message
     el.innerHTML = this.close + this.config.message;
 
-    var top = -this._height();
+    var top = -this._height() - 50;
 
     // disppear automaticlly
     if(this._timeout) clearTimeout(this._timeout);
@@ -109,26 +109,26 @@
     });
 
     interval = setInterval(function() {
-      if(top === 0) {
+      if(top === 20) {
         self._timeout = timeout && timeout();
         return clearInterval(interval);
       }
       el.style[self.config.placement] = (top += 1) + 'px';
-    }, 3);
+    }, 1);
 
     return this;
   };
 
   Essage.prototype.hide = function() {
     var top = +this.el.style[this.config.placement].slice(0, -2)
-      , dest = -this._height()
+      , dest = -this._height() - 50
       , self = this
       , interval;
 
     interval = setInterval(function() {
       if(top === dest) return interval && clearInterval(interval);
       self.el.style[self.config.placement] = (top -= 1) + 'px';
-    }, 3);
+    }, 1);
     return this;
   }
 
