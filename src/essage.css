@@ -28,7 +28,7 @@
 
 .essage-success {
   background: #eafbe3;
-  background: rgba(221, 242, 210, 0.9);
+  background: rgb(221, 242, 210);
   border-bottom-color: #bfd5a9;
   border-top-color: #bfd5a9;
   color: #3fb16f;
@@ -36,7 +36,7 @@
 
 .essage-error {
   background: #f2e1e4;
-  background: rgba(242, 225, 228, 0.9);
+  background: rgb(242, 225, 228);
   border-bottom-color: #e0cdcd;
   border-top-color: #e0cdcd;
   color: #dc584b;
@@ -44,7 +44,7 @@
 
 .essage-warning {
   background: #fcf8e3;
-  background: rgba(252, 248, 227, 0.9);
+  background: rgb(252, 248, 227);
   border-bottom-color: #fbeed5;
   border-top-color: #fbeed5;
   color: #c09853;
