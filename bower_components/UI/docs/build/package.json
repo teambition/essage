@@ -1,8 +1,0 @@
-{
-  "name": "bootstrap-doc-builder",
-  "version": "0.0.1",
-  "description": "build bootstrap docs",
-  "dependencies": {
-    "jade": "~0.28.1"
-  }
-}

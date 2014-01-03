@@ -1,8 +1,0 @@
-{
-  "name": "teambition-UI",
-  "version": "0.10.17",
-  "main": ["./docs/assets/js/bootstrap.js", "./docs/assets/css/teambition-ui.css"],
-  "dependencies": {
-    "jquery": "~2.0.x"
-  }
-}

@@ -1,6 +1,0 @@
-node_modules
-bower_components
-
-docs/*.html
-.DS_Store
-.idea
