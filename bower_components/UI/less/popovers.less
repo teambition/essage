@@ -1,0 +1,97 @@
+//
+// Popovers
+// --------------------------------------------------
+
+.popover {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: @zindexPopover;
+  width: 250px;
+  padding: 0;
+  text-align: left; // Reset given new insertion method
+  border: 1px solid @dropdownBorder;
+  background-color: @dropdownBackground;
+  .border-radius(@baseBorderRadius);
+  .box-shadow(@dropdownShadow);
+
+  // Overrides for proper insertion
+  white-space: normal;
+
+  // Offset the popover to account for the popover arrow
+  &.top {
+    margin-top: -10px;
+  }
+  &.right {
+    margin-left: 10px;
+  }
+  &.bottom {
+    margin-top: 10px;
+  }
+  &.left {
+    margin-left: -10px;
+  }
+
+}
+
+.popover-header {
+  padding: 10px 15px;
+  border-bottom: 1px solid @lightDivideLineColor;
+}
+
+.popover-close-handler,
+.popover-back-handler {
+  position: absolute;
+  top: 15px;
+}
+
+.popover-close-handler {
+  right: 15px;
+}
+
+.popover-back-handler {
+  visibility: hidden;
+  left: 15px;
+  .opacity(0);
+  .transition(opacity 218ms);
+  &:hover{
+    i{background-position: -192px -48px;}
+  }
+
+  .popover.in-submenu & {
+    visibility: visible;
+    .opacity(100);
+  }
+}
+
+.popover-title {
+  margin: 0;
+  font-size: @fontSizeLarge;
+  font-weight: bold;
+  line-height: @altLineHeight;
+  text-align: center;
+}
+
+.popover-content {
+  padding: 15px;
+
+  &.no-padding {
+    padding: 0;
+  }
+
+  > .list {
+    margin: -15px;
+  }
+
+  .form-control {
+    margin-bottom: 15px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  textarea{
+    resize: vertical;
+  }
+}

@@ -1,0 +1,1482 @@
+extend layout
+
+block content
+  //- Subhead
+  header.jumbotron.subhead#overview
+    div.container
+      h1 Components
+      p.lead Dozens of components built during web development.
+  div.container
+    //- Doc nav
+    div.row
+      div.span3.bs-docs-sidebar
+        ul.nav.nav-list.bs-docs-sidenav
+          li
+            a(href="#datepicker")
+              | Datepicker
+          li
+            a(href="#dropdowns")
+              | Dropdowns
+          li
+            a(href="#accordion")
+              | Accordion
+          li
+            a(href="#buttonGroups")
+              | Button groups
+          li
+            a(href='#buttonDropdowns')
+              | Button dropdowns
+          li
+            a(href='#popOver')
+              | PopOver
+          li
+            a(href='#card')
+              | Card
+          li
+            a(href='#map')
+              | Map
+          li
+            a(href='#toggle')
+              | Toggle switcher
+          li
+            a(href='#list')
+              | List
+          li
+            a(href="#nav")
+              | Nav
+          li
+            a(href='#navbar')
+              | Navbar
+          li
+            a(href='#handlerSet')
+              | Hander Set
+          li
+            a(href='#modal')
+              | Modal
+
+      div.span9
+        //- Datepicker
+        section#datepicker
+          div.page-header
+            h1 Datepicker
+          div.bs-docs-example
+            button#datepicker-toggler.btn.btn-primary Open Datepicker
+
+        //- Dropdowns
+        section#dropdowns
+          div.page-header
+            h1 Dropdown menus
+
+          h2 Example
+          p Toggleable, contextual menu for displaying lists of links.
+            | Made interactive with the
+            a(href="./javascript.html#dropdowns")  dropdown JavaScript plugin
+
+          div.bs-docs-example
+            div.dropdown.clearfix
+              ul.dropdown-menu(role="menu",aria-labelledby="dropdownMenu", style="opacity:1; visibility: visible; position: static; margin-bottom: 5px;*width: 180px;")
+                li
+                  a(tabindex="-1", href="#") Action
+                li
+                  a(tabindex="-1", href="#") Another action
+                li
+                  a(tabindex="-1", href="#") Something else here
+                li.divider
+                li
+                  a(tabindex="-1", href="#") Separated link
+          pre.prettyprint.
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+              <li><a tabindex="-1" href="#">Action</a></li>
+              <li><a tabindex="-1" href="#">Another action</a></li>
+              <li><a tabindex="-1" href="#">Something else here</a></li>
+              <li class="divider"></li>
+              <li><a tabindex="-1" href="#">Separated link</a></li>
+            </ul>
+
+          h2 Markup
+          p Looking at just the dropdown menu, here's the required HTML. You need to wrap the dropdown's trigger and the dropdown menu within
+            code .dropdown
+            , or another element that declares
+            code position: relative;
+            . Then just create the menu.
+          pre.prettyprint.
+            <div class="dropdown">
+              <!-- Link or button to toggle dropdown -->
+              <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                 <li><a tabindex="-1" href="#">Action</a></li>
+                 <li><a tabindex="-1" href="#">Another action</a></li>
+                 <li><a tabindex="-1" href="#">Something else here</a></li>
+                 <li class="divider"></li>
+                 <li><a tabindex="-1" href="#">Separated link</a></li>
+              </ul>
+            </div>
+
+          h2 Options
+          p Align menus to the right and add include additional levels of dropdowns.
+          h3 Aligning the menus
+          p Add
+            code .pull-right
+            span  to a
+            code .dropdown-menu
+            span  to right align the dropdown menu.
+          pre.prettyprint.
+            <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="dLabel">
+              ...
+            </ul>
+
+          h3 Disabled menu options
+          p
+            | Add
+            code .disabled
+            |  to a
+            code li
+            |  in the dropdown to disable the link.
+          div.bs-docs-example
+            div.dropdown.clearfix
+              ul.dropdown-menu(role='menu', aria-labelledby='dropdownMenu', style='opacity: 1;visibility: visible; position: static; margin-bottom: 5px; *width: 180px;')
+                li
+                  a(tabindex='-1', href='#') Regular link
+                li.disabled
+                  a(tabindex='-1', href='#') Disabled link
+                li
+                  a(tabindex='-1', href='#') Another link
+          pre.prettyprint.
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+              <li><a tabindex="-1" href="#">Regular link</a></li>
+              <li class="disabled"><a tabindex="-1" href="#">Disabled link</a></li>
+              <li><a tabindex="-1" href="#">Another link</a></li>
+            </ul>
+
+
+          h3 Menu with avatars or icons
+          p Sometime your menu items contains some things more than plain text,
+            | such as avatars or icons.
+          div.bs-docs-example.bs-docs-example-submenus
+            div.pull-left
+              p.muted Avatar
+              div.dropdown.clearfix
+                ul.dropdown-menu(role="menu", aria-labelledby="dropdownMenu", style='opacity: 1; visibility: visible; overflow: auto; position: static; margin-bottom: 5px; *width: 180px;')
+                  li
+                    a(tabindex='-1', herf='#')
+                      div.avatar.img-circle(style='background-image:url("http://www.gravatar.com/avatar/1509fa8f67e0a52562114be3cc908a3a.png");')
+                      | Junyuan
+                  li
+                    a(tabindex='-1', herf='#')
+                      div.avatar.img-circle((style='background-image:url("http://www.gravatar.com/avatar/2a017ed25d0a1cace909a452615d75d9.png");')
+                      | Xiang Jiang
+                  li
+                    a(tabindex='-1', herf='#')
+                      div.avatar.img-circle((style='background-image:url("http://www.gravatar.com/avatar/7322f76b8438b372fdc25ac3b4d624db.png");')
+                      | Jing Shao
+                  li.selected
+                    a(tabindex='-1', herf='#')
+                      div.avatar.img-circle((style='background-image:url("http://www.gravatar.com/avatar/1509fa8f67e0a52562114be3cc908a3a.png");')
+                      | Junyuan
+                  li
+                    a(tabindex='-1', herf='#')
+                      div.avatar.img-circle((style='background-image:url("http://www.gravatar.com/avatar/2a017ed25d0a1cace909a452615d75d9.png");')
+                      | Xiang Jiang
+                  li
+                    a(tabindex='-1', herf='#')
+                      div.avatar.img-circle((style='background-image:url("http://www.gravatar.com/avatar/7322f76b8438b372fdc25ac3b4d624db.png");')
+                      | Jing Shao
+                  li.selected
+                    a(tabindex='-1', herf='#')
+                      div.avatar.img-circle((style='background-image:url("http://www.gravatar.com/avatar/1509fa8f67e0a52562114be3cc908a3a.png");')
+                      | Junyuan
+                  li
+                    a(tabindex='-1', herf='#')
+                      div.avatar.img-circle((style='background-image:url("http://www.gravatar.com/avatar/2a017ed25d0a1cace909a452615d75d9.png");')
+                      | Xiang Jiang
+                  li
+                    a(tabindex='-1', herf='#')
+                      div.avatar.img-circle((style='background-image:url("http://www.gravatar.com/avatar/7322f76b8438b372fdc25ac3b4d624db.png");')
+                      | Jing Shaoli
+                  li
+                    a(tabindex='-1', herf='#')
+                      div.avatar.img-circle((style='background-image:url("http://www.gravatar.com/avatar/1509fa8f67e0a52562114be3cc908a3a.png");')
+                      | Junyuan
+                  li
+                    a(tabindex='-1', herf='#')
+                      div.avatar.img-circle((style='background-image:url("http://www.gravatar.com/avatar/2a017ed25d0a1cace909a452615d75d9.png");')
+                      | Xiang Jiang
+                  li
+                    a(tabindex='-1', herf='#')
+                      div.avatar.img-circle((style='background-image:url("http://www.gravatar.com/avatar/7322f76b8438b372fdc25ac3b4d624db.png");')
+                      | Jing Shao
+            div.pull-left
+              p.muted Icon
+              div.dropdown.clearfix
+                ul.dropdown-menu(role="menu", aria-labelledby="dropdownMenu", style='opacity: 1; visibility: visible;position: static; margin-bottom: 5px; *width: 180px;')
+                  li
+                    a(tabindex='-1', herf='#')
+                      span.icon.icon-calendar
+                      | Group by Date
+                  li
+                    a(tabindex='-1', herf='#')
+                      span.icon.icon-user
+                      | Group by Assignee
+
+        //- Accordion
+        section#accordion
+          div.page-header
+            h1 Accordion
+
+          h2 Example
+          div.bs-docs-example(style="overflow:hidden;")
+            div.accordion.pull-left#demoAccordion(style="width:210px;margin-right:30px;")
+              ul
+                li.accordion-group
+                  div.accordion-title(href='#collapseOne', data-toggle="collapse", data-parent="#demoAccordion")
+                    span.caret.pull-left
+                    span Personal Project
+                  ul.accordion-list.list.collapse.in#collapseOne
+                    li
+                      a
+                        div.icon.dim(style="background-image:url('../img/project-icon-normal.png');")
+                        span Project One
+                    li
+                      a
+                        div.icon.dim(style="background-image:url('../img/project-icon-normal.png');")
+                        span Project two
+                li.accordion-group
+                  div.accordion-title(href="#collapseTwo", data-toggle="collapse",data-parent="#demoAccordion")
+                    span.caret.pull-left
+                    span Organization Project
+                  ul.accordion-list.list#collapseTwo.collapse.in
+                    li
+                      a
+                        div.icon.dim(style="background-image:url('../img/project-icon-normal.png');")
+                        span Project One
+                    li
+                      a
+                        div.icon.dim(style="background-image:url('../img/project-icon-normal.png');")
+                        span Project two
+                    li
+                      a
+                        div.icon.dim(style="background-image:url('../img/project-icon-normal.png');")
+                        span Project three
+                li.accordion-group
+                  div.accordion-title(href="#collapseThree", data-toggle="collapse",data-parent="#demoAccordion")
+                    span.caret.pull-left
+                    span Organization Project
+                  ul.accordion-list.list#collapseThree.collapse.in
+                    li
+                      a
+                        div.icon.dim(style="background-image:url('../img/project-icon-normal.png');")
+                        span Project One
+                    li
+                      a
+                        div.icon.dim(style="background-image:url('../img/project-icon-normal.png');")
+                        span Project two
+                    li
+                      a
+                        div.icon.dim(style="background-image:url('../img/project-icon-normal.png');")
+                        span Project three
+
+            div.accordion.accordion-inverse.pull-left#demoAccordionTwo(style="width:210px;")
+              ul
+                li.accordion-group
+                  div.accordion-title(href='#collapseOneTwo', data-toggle="collapse", data-parent="#demoAccordionTwo")
+                    span.icon.icon-user
+                    span  Personal Project
+                    span.caret.pull-right
+                  ul.accordion-list.list.list-inverse.collapse.in#collapseOneTwo
+                    li
+                      a
+                        div.icon.dim(style="background-image:url('../img/project-icon-normal.png');")
+                        span Project One
+                    li
+                      a
+                        div.icon.dim(style="background-image:url('../img/project-icon-normal.png');")
+                        span Project two
+                li.accordion-group
+                  div.accordion-title(href="#collapseTwoTwo", data-toggle="collapse",data-parent="#demoAccordionTwo")
+                    span.icon.icon-building
+                    span  Organization Project
+                    span.caret.pull-right
+                  ul.accordion-list.list.list-inverse.collapse.in#collapseTwoTwo
+                    li
+                      a
+                        div.icon.dim(style="background-image:url('../img/project-icon-normal.png');")
+                        span Project One
+                    li
+                      a
+                        div.icon.dim(style="background-image:url('../img/project-icon-normal.png');")
+                        span Project two
+                    li
+                      a
+                        div.icon.dim(style="background-image:url('../img/project-icon-normal.png');")
+                        span Project three
+                li.accordion-group
+                  div.accordion-title(href="#collapseThreeTwo", data-toggle="collapse",data-parent="#demoAccordionTwo")
+                    span.icon.icon-building
+                    span  Organization Project
+                    span.caret.pull-right
+                  ul.accordion-list.list.list-inverse.collapse.in#collapseThreeTwo
+                    li
+                      a
+                        div.icon.dim(style="background-image:url('../img/project-icon-normal.png');")
+                        span Project One
+                    li
+                      a
+                        div.icon.dim(style="background-image:url('../img/project-icon-normal.png');")
+                        span Project two
+                    li
+                      a
+                        div.icon.dim(style="background-image:url('../img/project-icon-normal.png');")
+                        span Project three
+
+          pre.prettyprint.
+            <div class="accordion" style="width:210px;">
+              <ul>
+                <li class="active">
+                  <div class="accordion-title">
+                    <span class="icon icon-user"></span>
+                    <span>Personal Project<span>
+                    <span class="caret pull-right"></span>
+                  </div>
+                  <ul class="accordion-list list list-inverse">
+                    <li class="active">
+                      <a href="">
+                        <div class="icon dim" style="background-image:url('../img/project-icon-normal.png');"></div>
+                        <span>Project One</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="">
+                        <div class="icon dim" style="background-image:url('../img/project-icon-normal.png');"></div>
+                        <span>Project Two</span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <div class="accordion-title">
+                    <span class="icon icon-building"></span>
+                    <span>Organization Project<span>
+                    <span class="caret pull-right"></span>
+                  </div>
+                  <ul class="accordion-list list list-inverse">
+                    <li class="active">
+                      <a href="">
+                        <div class="icon dim" style="background-image:url('../img/project-icon-normal.png');"></div>
+                        <span>Project One</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="">
+                        <div class="icon dim" style="background-image:url('../img/project-icon-normal.png');"></div>
+                        <span>Project Two</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="">
+                        <div class="icon dim" style="background-image:url('../img/project-icon-normal.png');"></div>
+                        <span>Project Three</span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <div class="accordion-title">
+                    <span class="icon icon-building"></span>
+                    <span>Organization Project<span>
+                    <span class="caret pull-right"></span>
+                  </div>
+                  <ul class="accordion-list list list-inverse">
+                    <li class="active">
+                      <a href="">
+                        <div class="icon dim" style="background-image:url('../img/project-icon-normal.png');"></div>
+                        <span>Project One</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="">
+                        <div class="icon dim" style="background-image:url('../img/project-icon-normal.png');"></div>
+                        <span>Project Two</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="">
+                        <div class="icon dim" style="background-image:url('../img/project-icon-normal.png');"></div>
+                        <span>Project Three</span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+
+        //- Button Groups
+        section#buttonGroups
+          div.page-header
+            h1 Button Groups
+
+          h2 Examples
+          p Two basic options, along with two more specific variations.
+          h3 Single button group
+          p
+            | Wrap a series of buttons with
+            code .btn
+            |  in
+            code .btn-group
+            | .
+          .bs-docs-example
+            .btn-group(style='margin: 9px 0 5px;')
+              button.btn Left
+              button.btn Middle
+              button.btn Right
+          pre.prettyprint.
+            <div class="btn-group">
+              <button class="btn">Left</button>
+              <button class="btn">Middle</button>
+              <button class="btn">Right</button>
+            </div>
+
+          h3 Multiple button groups
+          p
+            | Combine sets of
+            code .btn-group
+            | into a
+            code .btn-toolbar
+            | for more complex components.
+          .bs-docs-example
+            .btn-toolbar(style='margin: 0;')
+              .btn-group
+                button.btn 1
+                button.btn 2
+                button.btn 3
+                button.btn 4
+              .btn-group
+                button.btn 5
+                button.btn 6
+                button.btn 7
+              .btn-group
+                button.btn 8
+          pre.prettyprint.
+            <div class="btn-toolbar">
+              <div class="btn-group">
+                 ...
+              </div>
+            </div>
+
+          h3 Vertical button groups
+          p
+            | Make a set of buttons appear vertically stacked rather than horizontally.
+          .bs-docs-example
+            .btn-group.btn-group-vertical
+              button.btn(type='button') 1
+              button.btn(type='button') 2
+              button.btn(type='button') 3
+              button.btn(type='button') 4
+          pre.prettyprint.
+            <div class="btn-group btn-group-vertical">
+              ...
+            </div>
+
+          hr.bs-docs-separator
+          h4 Checkbox and radio flavors
+          p
+            | Button groups can also function as radios, where only one button may be active, or checkboxes, where any number of buttons may be active. View
+            a(href='./javascript.html#buttons') the JavaScript docs
+            |  for that.
+          h4 Dropdowns in button groups
+          p
+            span.label.label-info Heads up!
+            |  Buttons with dropdowns must be individually wrapped in their own
+            code .btn-group
+            |  within a
+            code .btn-toolbar
+            |  for proper rendering.
+
+        //- Split button dropdowns
+        section#buttonDropdowns
+          div.page-header
+            h1 Button dropdown menus
+          h2 Overview and examples
+          p
+            | Use any button to trigger a dropdown menu by placing it within a
+            code .btn-group
+            |  and providing the proper menu markup.
+          .bs-docs-example
+            .btn-toolbar(style='margin: 0;')
+              .btn-group
+                button.btn.dropdown-toggle(data-toggle='dropdown')
+                  | Action
+                  span.caret
+                ul.dropdown-menu
+                  li
+                    a(href='#') Action
+                  li
+                    a(href='#') Another action
+                  li
+                    a(href='#') Something else here
+                  li.divider
+                  li
+                    a(href='#') Separated link
+              .btn-group
+                button.btn.btn-primary.dropdown-toggle(data-toggle='dropdown')
+                  | Action
+                  span.caret
+                ul.dropdown-menu
+                  li
+                    a(href='#') Action
+                  li
+                    a(href='#') Another action
+                  li
+                    a(href='#') Something else here
+                  li.divider
+                  li
+                    a(href='#') Separated link
+              .btn-group
+                button.btn.btn-danger.dropdown-toggle(data-toggle='dropdown')
+                  | Danger
+                  span.caret
+                ul.dropdown-menu
+                  li
+                    a(href='#') Action
+                  li
+                    a(href='#') Another action
+                  li
+                    a(href='#') Something else here
+                  li.divider
+                  li
+                    a(href='#') Separated link
+              .btn-group
+                button.btn.btn-warning.dropdown-toggle(data-toggle='dropdown')
+                  | Warning
+                  span.caret
+                ul.dropdown-menu
+                  li
+                    a(href='#') Action
+                  li
+                    a(href='#') Another action
+                  li
+                    a(href='#') Something else here
+                  li.divider
+                  li
+                    a(href='#') Separated link
+              .btn-group
+                button.btn.btn-success.dropdown-toggle(data-toggle='dropdown')
+                  | Success
+                  span.caret
+                ul.dropdown-menu
+                  li
+                    a(href='#') Action
+                  li
+                    a(href='#') Another action
+                  li
+                    a(href='#') Something else here
+                  li.divider
+                  li
+                    a(href='#') Separated link
+              .btn-group
+                button.btn.btn-info.dropdown-toggle(data-toggle='dropdown')
+                  | Info
+                  span.caret
+                ul.dropdown-menu
+                  li
+                    a(href='#') Action
+                  li
+                    a(href='#') Another action
+                  li
+                    a(href='#') Something else here
+                  li.divider
+                  li
+                    a(href='#') Separated link
+              .btn-group
+                button.btn.btn-inverse.dropdown-toggle(data-toggle='dropdown')
+                  | Inverse
+                  span.caret
+                ul.dropdown-menu
+                  li
+                    a(href='#') Action
+                  li
+                    a(href='#') Another action
+                  li
+                    a(href='#') Something else here
+                  li.divider
+                  li
+                    a(href='#') Separated link
+          pre.prettyprint.
+            <div class="btn-group">
+              <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                 Action
+                 <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                 <!-- dropdown menu links -->
+              </ul>
+            </div>
+
+          h3 Works with all button sizes
+          p
+            | Button dropdowns work at any size:
+            code .btn-large
+            | ,
+            code .btn-small
+            | , or
+            code .btn-mini
+            | .
+          .bs-docs-example
+            .btn-toolbar(style='margin: 0;')
+              .btn-group
+                button.btn.btn-large.dropdown-toggle(data-toggle='dropdown')
+                  | Large button
+                  span.caret
+                ul.dropdown-menu
+                  li
+                    a(href='#') Action
+                  li
+                    a(href='#') Another action
+                  li
+                    a(href='#') Something else here
+                  li.divider
+                  li
+                    a(href='#') Separated link
+              .btn-group
+                button.btn.dropdown-toggle(data-toggle='dropdown')
+                  | Normal button
+                  span.caret
+                ul.dropdown-menu
+                  li
+                    a(href='#') Action
+                  li
+                    a(href='#') Another action
+                  li
+                    a(href='#') Something else here
+                  li.divider
+                  li
+                    a(href='#') Separated link
+              .btn-group
+                button.btn.btn-small.dropdown-toggle(data-toggle='dropdown')
+                  | Small button
+                  span.caret
+                ul.dropdown-menu
+                  li
+                    a(href='#') Action
+                  li
+                    a(href='#') Another action
+                  li
+                    a(href='#') Something else here
+                  li.divider
+                  li
+                    a(href='#') Separated link
+              .btn-group
+                button.btn.btn-mini.dropdown-toggle(data-toggle='dropdown')
+                  | Mini button
+                  span.caret
+                ul.dropdown-menu
+                  li
+                    a(href='#') Action
+                  li
+                    a(href='#') Another action
+                  li
+                    a(href='#') Something else here
+                  li.divider
+                  li
+                    a(href='#') Separated link
+
+          h3 Requires JavaScript
+          p
+            | Button dropdowns require the
+            a(href='./javascript.html#dropdowns')  teambition UI dropdown plugin
+            | to function.
+          p
+            | In some cases—like mobile—dropdown menus will extend outside the viewport. You need to resolve the alignment manually or with custom JavaScript.
+          hr.bs-docs-separator
+          h2 Split button dropdowns
+          p
+            | Building on the button group styles and markup, we can easily create a split button. Split buttons feature a standard action on the left and a dropdown toggle on the right with contextual links.
+          .bs-docs-example
+            .btn-toolbar(style='margin: 0;')
+              .btn-group
+                button.btn Action
+                button.btn.dropdown-toggle(data-toggle='dropdown')
+                  span.caret
+                ul.dropdown-menu
+                  li
+                    a(href='#') Action
+                  li
+                    a(href='#') Another action
+                  li
+                    a(href='#') Something else here
+                  li.divider
+                  li
+                    a(href='#') Separated link
+              .btn-group
+                button.btn.btn-primary Action
+                button.btn.btn-primary.dropdown-toggle(data-toggle='dropdown')
+                  span.caret
+                ul.dropdown-menu
+                  li
+                    a(href='#') Action
+                  li
+                    a(href='#') Another action
+                  li
+                    a(href='#') Something else here
+                  li.divider
+                  li
+                    a(href='#') Separated link
+              .btn-group
+                button.btn.btn-danger Danger
+                button.btn.btn-danger.dropdown-toggle(data-toggle='dropdown')
+                  span.caret
+                ul.dropdown-menu
+                  li
+                    a(href='#') Action
+                  li
+                    a(href='#') Another action
+                  li
+                    a(href='#') Something else here
+                  li.divider
+                  li
+                    a(href='#') Separated link
+              .btn-group
+                button.btn.btn-warning Warning
+                button.btn.btn-warning.dropdown-toggle(data-toggle='dropdown')
+                  span.caret
+                ul.dropdown-menu
+                  li
+                    a(href='#') Action
+                  li
+                    a(href='#') Another action
+                  li
+                    a(href='#') Something else here
+                  li.divider
+                  li
+                    a(href='#') Separated link
+              .btn-group
+                button.btn.btn-success Success
+                button.btn.btn-success.dropdown-toggle(data-toggle='dropdown')
+                  span.caret
+                ul.dropdown-menu
+                  li
+                    a(href='#') Action
+                  li
+                    a(href='#') Another action
+                  li
+                    a(href='#') Something else here
+                  li.divider
+                  li
+                    a(href='#') Separated link
+              .btn-group
+                button.btn.btn-info Info
+                button.btn.btn-info.dropdown-toggle(data-toggle='dropdown')
+                  span.caret
+                ul.dropdown-menu
+                  li
+                    a(href='#') Action
+                  li
+                    a(href='#') Another action
+                  li
+                    a(href='#') Something else here
+                  li.divider
+                  li
+                    a(href='#') Separated link
+              .btn-group
+                button.btn.btn-inverse Inverse
+                button.btn.btn-inverse.dropdown-toggle(data-toggle='dropdown')
+                  span.caret
+                ul.dropdown-menu
+                  li
+                    a(href='#') Action
+                  li
+                    a(href='#') Another action
+                  li
+                    a(href='#') Something else here
+                  li.divider
+                  li
+                    a(href='#') Separated link
+          pre.prettyprint.
+            <div class="btn-group">
+              <button class="btn">Action</button>
+              <button class="btn dropdown-toggle" data-toggle="dropdown">
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+                <!-- dropdown menu links -->
+              </ul>
+            </div>
+
+          h3 Sizes
+          p
+            | Utilize the extra button classes
+            code .btn-mini
+            |  ,
+            code .btn
+            |  ,
+            code .btn-small
+            |  , or
+            code .btn-large
+            |  for sizing.
+          .bs-docs-example
+            .btn-toolbar
+              .btn-group
+                button.btn.btn-large Large action
+                button.btn.btn-large.dropdown-toggle(data-toggle='dropdown')
+                  span.caret
+                ul.dropdown-menu
+                  li
+                    a(href='#') Action
+                  li
+                    a(href='#') Another action
+                  li
+                    a(href='#') Something else here
+                  li.divider
+                  li
+                    a(href='#') Separated link
+            .btn-toolbar
+              .btn-group
+                button.btn Normal action
+                button.btn.dropdown-toggle(data-toggle='dropdown')
+                  span.caret
+                ul.dropdown-menu
+                  li
+                    a(href='#') Action
+                  li
+                    a(href='#') Another action
+                  li
+                    a(href='#') Something else here
+                  li.divider
+                  li
+                    a(href='#') Separated link
+            .btn-toolbar
+              .btn-group
+                button.btn.btn-small Small action
+                button.btn.btn-small.dropdown-toggle(data-toggle='dropdown')
+                  span.caret
+                ul.dropdown-menu
+                  li
+                    a(href='#') Action
+                  li
+                    a(href='#') Another action
+                  li
+                    a(href='#') Something else here
+                  li.divider
+                  li
+                    a(href='#') Separated link
+            .btn-toolbar
+              .btn-group
+                button.btn.btn-mini Mini action
+                button.btn.btn-mini.dropdown-toggle(data-toggle='dropdown')
+                  span.caret
+                ul.dropdown-menu
+                  li
+                    a(href='#') Action
+                  li
+                    a(href='#') Another action
+                  li
+                    a(href='#') Something else here
+                  li.divider
+                  li
+                    a(href='#') Separated link
+          pre.prettyprint.
+            <div class="btn-group">
+              <button class="btn">Action</button>
+              <button class="btn dropdown-toggle" data-toggle="dropdown">
+                 <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+                 <!-- dropdown menu links -->
+              </ul>
+            </div>
+
+          h3 Dropup menus
+          p
+            | Dropdown menus can also be toggled from the bottom up by adding a single class to the immediate parent of
+            code .dropdown-menu
+            |  . It will flip the direction of the
+            code .caret
+            |  and reposition the menu itself to move from the bottom up instead of top down.
+          .bs-docs-example
+            .btn-toolbar(style='margin: 0;')
+              .btn-group.dropup
+                button.btn Dropup
+                button.btn.dropdown-toggle(data-toggle='dropdown')
+                  span.caret
+                ul.dropdown-menu
+                  li
+                    a(href='#') Action
+                  li
+                    a(href='#') Another action
+                  li
+                    a(href='#') Something else here
+                  li.divider
+                  li
+                    a(href='#') Separated link
+              .btn-group.dropup
+                button.btn.primary Right dropup
+                button.btn.primary.dropdown-toggle(data-toggle='dropdown')
+                  span.caret
+                ul.dropdown-menu.pull-right
+                  li
+                    a(href='#') Action
+                  li
+                    a(href='#') Another action
+                  li
+                    a(href='#') Something else here
+                  li.divider
+                  li
+                    a(href='#') Separated link
+          pre.prettyprint.
+            <div class="btn-group">
+              <button class="btn btn-mini">Action</button>
+              <button class="btn btn-mini dropdown-toggle" data-toggle="dropdown">
+                 <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+                 <!-- dropdown menu links -->
+              </ul>
+            </div>
+
+        //- Popover
+        section#popOver
+          div.page-header
+            h1 PopOver
+          div.bs-docs-example
+            div(style='position:relative;height:320px;')
+              div.popover(style='display:block')
+                header.popover-header
+                  a.popover-back-handler.icon.icon-chevron-left
+                  h3.popover-title Popover Title
+                  a.popover-close-handler.icon.icon-remove
+                div.popover-content
+                  ul.list
+                    li
+                      a
+                        span.icon.icon-pencil
+                        |  enter submenu one
+                    li
+                      a
+                        span.icon.icon-pencil
+                        |  another action
+                    li
+                      a
+                        span.icon.icon-pencil
+                        |  another action
+              div.popover.in-submenu(style='display:block; left: 280px;')
+                header.popover-header
+                  a.popover-back-handler.icon.icon-chevron-left
+                  h3.popover-title Submenu One
+                  a.popover-close-handler.icon.icon-remove
+                div.popover-content
+                  form
+                    input.form-control(type='text',placeholder='input...')
+                    textarea.form-control(placeholder='textarea...')
+                    select.form-control
+                      option(selected) option 1
+                    button.btn.btn-primary submit this form
+          pre.prettyprint.
+            <div class="popover">
+              <header class="popover-header">
+                <a class="popover-back-handler icon icon-chevron-left"></a>
+                <h3 class="popover-title">Popover Title</h3>
+                <a class="popover-close-handler icon icon-remove"></a>
+              </header>
+              <div class="popover-content">
+                <ul class="list">
+                  <li><a><span class="icon icon-pencil"></span> edit content<span class="icon icon-chevron-right"></span></a></li>
+                  ...
+                </ul>
+              </div>
+            </div>
+            <div class="popover in-submenu">
+              <header class="popover-header">
+                ...
+              </header>
+              <div class="popover-content">
+                <form>
+                  <input type="text" placeholder="input...">
+                  <textarea placeholder="textarea..."></textarea>
+                  <select>
+                    <option selected="">option 1</option>
+                  </select>
+                  <button class="btn btn-primary">submit this form</button>
+                </form>
+              </div>
+            </div>
+
+          h2 Setup a popover through JavaScript
+          div.bs-docs-example
+            button.btn.btn-primary#popoverToggler Toggle Popover
+          pre.prettyprint.
+            $('#popoverToggler').popover(options);
+
+        //- Card
+        section#card
+          div.page-header
+            h1 Card
+            p.lead Card is the basic content element.
+          h2 A basic card
+          div.bs-docs-example
+            div.card
+              header.card-header
+                h3.card-title Card Title
+                p.card-description This is an example card.
+              div.card-content
+                p this is card content
+          pre.prettyprint.
+            <div class="card">
+              <header class="card-header">
+                <h3 class="card-title">Card Title</h3>
+                <p class="card-description">This is an example card.</p>
+              </header>
+              <div class="card-content">
+                <p>this is card content</p>
+              </div>
+            </div>
+          h2 Card with a small title
+          div.bs-docs-example
+            div.card
+              header.card-header
+                p.card-title Card Title
+              div.card-content
+                p this is card content
+          pre.prettyprint.
+            <div class="card">
+              <header class="card-header">
+                <p class="card-title">Card Title</p>
+              </header>
+              <div class="card-content">
+                <p>this is card content</p>
+              </div>
+            </div>
+          h2 Card header without a bottom border
+          div.bs-docs-example
+            div.card
+              header.card-header.no-bottom
+                p.card-title.pull-left Card Title
+                ul.nav.nav-pills
+                  li.active: a(href='#') Section One
+                  li: a(href='#') Section Two
+                  li: a(href='#') Section Three
+              div.card-content
+                p this is the content of section one
+          pre.prettyprint.
+            <div class="card">
+              <header class="card-header no-bottom">
+                <p class="card-title pull-left">Card Title</p>
+                <ul class="nav nav-pills">
+                  <li class="active"><a href="#">Section One</a></li>
+                  <li><a href="#">Section Two</a></li>
+                  <li><a href="#">Section Three</a></li>
+                </ul>
+              </header>
+              <div class="card-content">
+                <p>this is the content of section one</p>
+              </div>
+            </div>
+          h2 A card with readable content
+          div.bs-docs-example
+            div.card
+              header.card-header
+                p.card-title Card With Readable Content
+              div.card-content.readable
+                h1 This Is Header Line 1
+                h2 This Is Header Line 2
+                h3 This Is Header Line 3
+                h4 This Is Header Line 4
+                h5 This Is Header Line 5
+                h6 This Is Header Line 6
+                p Now is the time for all good men to come to
+                  | the aid of their country. This is just a
+                  | regular paragraph.
+                p The quick brown fox jumped over the lazy dog's back.
+                ul
+                  li disc list item 1
+                  li disc list item 2
+                  li disc list item 3
+                ol
+                  li decimal list item 1
+                  li decimal list item 2
+                  li decimal list item 3
+                table.table
+                  thead
+                    tr
+                      th #
+                      th First Name
+                      th Last Name
+                      th Username
+                  tbody
+                    tr
+                      td 1
+                      td Mark
+                      td Otto
+                      td @mdo
+                    tr
+                      td 2
+                      td Jacob
+                      td Thornton
+                      td @fat
+                    tr
+                      td 3
+                      td Larry
+                      td the Bird
+                      td @twitter
+                blockquote
+                  p This is a blockquote.
+                  h2 This is an H2 in a blockquote
+                  p This is the second paragraph in the blockquote.
+                pre.
+                  <div class="code-in-readable">
+                    <ol class="map-indicators">
+                      <li data-map-to="0" class="active"></li>
+                      <li data-map-to="1" class="active"></li>
+                      <li data-map-to="2" class="active"></li>
+                    </ol>
+                  </div>
+                img(src='https://file2.teambition.com/download/51de58a1e8cf14203f2bb10b')
+
+        //- Map
+        section#map
+          div.page-header
+            h1 Map
+          p.lead Map is the best way to navigate around parallel contents.
+          div.bs-docs-example
+            div.map
+              ol.map-indicators
+                li.active(data-map-to="0")
+                li.active(data-map-to="1")
+                li.active(data-map-to="2")
+                li.active(data-map-to="3")
+                li(data-map-to="4")
+                li(data-map-to="5")
+                li(data-map-to="6")
+          pre.prettyprint.
+            <div class="map">
+              <ol class="map-indicators">
+                <li data-map-to="0" class="active"></li>
+                <li data-map-to="1" class="active"></li>
+                <li data-map-to="2" class="active"></li>
+                <li data-map-to="3" class="active"></li>
+                <li data-map-to="4"></li>
+                <li data-map-to="5"></li>
+                <li data-map-to="6"></li>
+              </ol>
+            </div>
+
+        //- Toggle Switcher
+        section#toggle
+          div.page-header
+            h1 Toggle Switcher
+          p.lead Toggle Switcher is tricked checkbox type input.
+          div.bs-docs-example(style="height: 70px;")
+            div.toggle.blue(style="top:50%;left:50%;margin:-18px -40px;")
+              input.check(type="checkbox")
+              div.switch
+              div.track
+          pre.prettyprint.
+            <div class="toggle blue">
+              <input class="check" type="checkbox">
+              <div class="switch"></div>
+              <div class="track"></div>
+            </div>
+
+        //- List
+        section#list
+          div.page-header
+            h1 List
+          h2 List Inverse
+          p Mainly used for switcher list
+          div.bs-docs-example.bs-docs-example-submenus
+            div.pull-left
+              ul.list.list-inverse(style="width:210px;background-color:#373737;")
+                - for (i=1;i<4;i++)
+                  li
+                    a(href="#")
+                      div.icon.img-rounded.dim(style="background-image:url('http://www.teambition.com/site_media/cache/16/32/4dc3edcea6b08ffc60e5a9a9bb843216_200x200.png');")
+                      span Item #{i}
+                li.list-divider
+                - for (i=1;i<4;i++)
+                  li
+                    a(href="#")
+                      div.icon.img-circle.dim(style="background-image:url('http://www.teambition.com/site_media/cache/16/32/4dc3edcea6b08ffc60e5a9a9bb843216_200x200.png');")
+                      span Item #{i}
+            div.pull-left
+              ul.list(style="width:210px;background-color:#fff;")
+                - for (i=1;i<4;i++)
+                  li
+                    a(href="#")
+                      div.icon.img-rounded(style="background-image:url('http://www.teambition.com/site_media/cache/16/32/4dc3edcea6b08ffc60e5a9a9bb843216_200x200.png');")
+                      span Item #{i}
+                li.list-divider
+                - for (i=1;i<4;i++)
+                  li
+                    a(href="#")
+                      div.icon.img-circle(style="background-image:url('http://www.teambition.com/site_media/cache/16/32/4dc3edcea6b08ffc60e5a9a9bb843216_200x200.png');")
+                      span Item #{i}
+
+        //- Nav
+        section#nav
+          div.page-header
+            h1 Nav
+
+          h2 Nav Tabs
+          div.bs-docs-example
+            ul.nav.nav-tabs
+              li.active: a Tab One
+              li: a Tab Two
+              li: a Tab Three
+          pre.prettyprint.
+            <ul class="nav nav-tabs">
+              <li class="active"><a>Tab One</a></li>
+              <li><a>Tab Two</a></li>
+              <li><a>Tab Three</a></li>
+            </ul>
+
+          h2 Nav pills
+          div.bs-docs-example
+            ul.nav.nav-pills
+              li.active
+                a(href='#') Section One
+              li
+                a(href='#') Section Two
+              li
+                a(href='#') Section Three
+          pre.prettyprint.
+            <ul class="nav nav-pills">
+              <li class="active">
+                <a href="#">Home</a>
+              </li>
+              <li><a href="#">...</a></li>
+              <li><a href="#">...</a></li>
+            </ul>
+          h2 Nav Underscore
+          p When you don't need back button, just remove
+            code .icon-chevron-left
+            |  from the first
+            code &lt;li&gt;
+            .
+          div.bs-docs-example
+            ul.nav.nav-underscore
+              li
+                a(href="#")
+                  span.icon.icon-chevron-left
+                  h3 Title
+              li.active
+                a(href="#") Item One
+              li
+                a(href="#") Item Two
+              li.pull-right
+                div.btn.btn-primary
+                  span.icon.icon-plus-sign
+                  |  Add Button
+              li.pull-right
+                div.btn-group
+                  div.btn Button One
+                  div.btn Button Two
+
+          pre.prettyprint.
+            <ul class="nav nav-underscore">
+              <li>
+                <span class="icon icon-chevron-left"></span>
+                <h3>Title</h3>
+              </li>
+              <li>
+                <a href="#">Item One</a>
+              </li>
+              <li>
+                <a href="#">Item Two</a>
+              </li>
+              <li class="pull-right">
+                <div class="btn btn-primary">
+                  <span class="icon icon-plus-sign"></span>
+                  Add Button
+                </div>
+              </li>
+            </ul>
+
+        //- Navbar
+        section#navbar
+          div.page-header
+            h1 Navbar
+          p.lead Navbar Central is used for teambition main top-nav
+
+          h2 Central Navbar
+          p When the Inbox is empty, remove class
+            code .hold
+            |  from the corresponding
+            code &lt;a&gt;
+          div.bs-docs-example(style="background-color:#f2f2f2;overflow-y:hidden;height:200px;")
+            div.navbar.navbar-central(style="width:1000px;margin:10px;")
+              div.navbar-inner
+                ul.nav.left-side
+                  li
+                    a(href="#")
+                      span.icon.icon-menu
+                a(href="").brand.central
+                  | Title
+                  b.caret
+                ul.nav.right-side
+                  li
+                    a(href='#')
+                      span.icon.icon-plus
+                      |  New Project
+                  li
+                    a(href='#').hold
+                      span.icon.icon-inbox
+                      span.message-number  10
+                  li.pull-right
+                    a.dropdown-toggle(href='#', data-toggle='dropdown')
+                      div.avatar.img-circle(style="background-image:url('http://www.gravatar.com/avatar/1509fa8f67e0a52562114be3cc908a3a.png');")
+                      b.caret
+                    ul.dropdown-menu(role="menu")
+                      li
+                        a(href="#")
+                          | Dashboard
+                      li
+                        a(href="#")
+                          | Setting
+                      li
+                        a(href="#")
+                          | Logout
+          pre.prettyprint.
+            <div style="width:1000px;" class="navbar">
+              <div class="navbar-inner">
+                <ul class="nav left-side">
+                  <li><a href="#"><i class="nav-icon nav-icon-menu"></i></a></li>
+                </ul>
+                <a href="#" class="brand central">Title<b class="caret"></b></a>
+                <ul class="nav right-side">
+                  <li><a href="#"><i class="icon-plus-dark"></i> New Project</a></li>
+                  <li><a href="#"><i class="nav-icon nav-icon-inbox hold"></i><span class="message-number">10</span></a></li>
+                  <li><a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                      <div style="background-image:url('http://www.gravatar.com/avatar/1509fa8f67e0a52562114be3cc908a3a.png');" class="avatar img-circle"></div><b class="caret"></b></a>
+                    <ul role="menu" class="dropdown-menu">
+                      <li><a href="#">Dashboard</a></li>
+                      <li><a href="#">Settings</a></li>
+                      <li><a href="#">Log Out</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+          h2 Central Navbar Inverse
+          div.bs-docs-example(style="background-color:#f2f2f2;overflow-y:hidden;")
+            div.navbar.navbar-inverse(style="padding:20px 0;")
+              div.navbar-inner(style="background-color:#4b6b8d;")
+                a(href="").brand.central
+                  | Title
+
+          pre.prettyprint.
+            <div style="width:500px;" class="navbar navbar-inverse">
+              <div class="navbar-inner">
+                <a href="#" class="brand central">Title</a>
+              </div>
+            </div>
+
+        //- Handler Set
+        section#handlerSet
+          div.page-header
+            h1 Handler Set
+          p.lead Hanlder Set is used in each object card
+          h2 Horizontal Handler Set
+          div.bs-docs-example
+            div.card(style='padding: 30px 0;')
+              div.handler-set(style="border-bottom:1px solid #d9d9d9;height:42px;")
+                a.handler.pull-left
+                  span.icon.icon-plus-sign
+                div.involve-view.handler-group.pull-left
+                  a.handler(href='javascript:void(0)')
+                    span.icon.icon-calendar
+                    |  Due Date
+                div.handler-group.pull-right
+                  a.more-handler-btn.handler.dropdown-toggler(data-toggle='dropdown')
+                    | More Handlers
+                  ul.dropdown-menu
+                    li
+                      a.delete-handler
+                        i.icon-trash
+                        | 删除分享
+                label.checkbox.pull-right
+                  input(type="checkbox")
+                  | Press Enter to Post
+
+          pre.prettyprint.
+            <div class="handler-set">
+              <div class="involve-view handler-group pull-left">
+                <a class="handler" href="javascript:void(0)">
+                  <i class="handler-icon-involve"></i>
+                </a>
+              </div>
+              <div class="handler-group pull-right">
+                <div class="more-handler-btn handler dropdown-toggler" data-toggle="dropdown">
+                  <i class="handler-icon-more"></i>
+                </div>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a class="delete-handler">
+                      <i class="icon-trash"></i>
+                      删除分享
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <ul class="involve-members">
+                <li class="involve-member">
+                  <div class="avatar" style="background-image:url(http://192.168.0.5/site_media/cache/5e/4f/e2e6c4cb98fedfe17397b581b6e54f5e_100x100.jpg);"></div>
+                </li>
+                <li class="involve-member">
+                  <div class="avatar" style="background-image:url(http://www.teambition.com/site_media/user_avatars/20120503133607_684.png);"></div>
+                </li>
+              </ul>
+            </div>
+
+        //- modal
+        section#modal
+          div.page-header
+            h1 Modal
+          p.lead Modal is the best interaction for things that should not switch user's context. For instance, settings.
+
+          h2 Click to launch a demo modal
+          p.lead Literally, you can put anything into a modal, here we use a card.
+          div.bs-docs-example
+            a.btn.btn-primary.btn-large(role='button', data-toggle='modal', href='#demoModal')
+              | Launch Demo Modal
+            div#demoModal.modal.hide.fade(role='dialog', tabindex='-1', aria-hidden='true')
+              div.card.modal-dialog
+                header.card-header
+                  p.card-title.pull-left Card Title
+                  a.btn.modal-close-btn.pull-right(data-dismiss="modal") Close
+                div.card-content
+                  - for (i = 1; i < 21; i++)
+                    p this is card content
+          pre.prettyprint.
+            <!-- Button to trigger modal -->
+            <a href="#demoModal" role="button" class="btn" data-toggle="modal">Launch demo modal</a>
+
+            <!-- Modal -->
+            <div id="demoModal" role="dialog" tabindex="-1" aria-hidden="false" class="modal hide fade in" style="display: block;">
+              <div class="card">
+                <header class="card-header">
+                  <p class="card-title">Card Title</p>
+                  <a class="btn modal-close-btn pull-right" data-dismiss="modal">Close</a>
+                </header>
+                <div class="card-content">
+                  <p>this is card content</p>
+                  ...
+                </div>
+              </div>
+            </div>
+
+
+block script
+  script
+    //- Init the datepicker example
+    $('#datepicker-toggler').datepicker({language: 'zh-CN'});
+
+    //- Init the popover example
+    $('#popoverToggler').popover({
+      title: 'Popover Title',
+      content: 'This is the title of the popover',
+      placement: 'top'
+    });
+
+    $('#popoverToggler').on('hidden.bs.popover', function(){
+      alert('popover hidden');
+    });
+
+

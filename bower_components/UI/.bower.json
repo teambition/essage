@@ -1,0 +1,21 @@
+{
+  "name": "teambition-UI",
+  "version": "0.10.17",
+  "main": [
+    "./docs/assets/js/bootstrap.js",
+    "./docs/assets/css/teambition-ui.css"
+  ],
+  "dependencies": {
+    "jquery": "~2.0.x"
+  },
+  "homepage": "https://github.com/teambition/UI",
+  "_release": "0.10.17",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.10.17",
+    "commit": "6da4f9b03004735ddcafe922f9f48c4a66c71f51"
+  },
+  "_source": "git@github.com:teambition/UI.git",
+  "_target": "*",
+  "_originalSource": "git@github.com:teambition/UI.git"
+}

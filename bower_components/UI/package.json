@@ -1,0 +1,29 @@
+{
+  "name": "teambition-ui",
+  "description": "UI kit used by teambition during web development.",
+  "version": "0.10.17",
+  "keywords": [
+    "teambition",
+    "bootstrap",
+    "css"
+  ],
+  "homepage": "http://dev.teambition.com/ui/",
+  "author": "teambition design team",
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Teambition/UI.git"
+  },
+  "devDependencies": {
+    "uglify-js": "1.3.4",
+    "jshint": "0.9.1",
+    "recess": "1.1.8",
+    "connect": "2.1.3",
+    "hogan.js": "2.0.0",
+    "jade": "~0.28.2",
+    "grunt": "~0.4.1",
+    "grunt-bump": "https://github.com/island205/grunt-bump/tarball/master"
+  }
+}

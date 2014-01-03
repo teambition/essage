@@ -1,0 +1,69 @@
+.toggle {
+  position: relative;
+  .size(34px, 60px);
+  .border-radius(100px);
+  background-color: @grayLight;
+  overflow: hidden;
+  .box-shadow(inset 0 0 2px 1px rgba(0,0,0,.05));
+
+  &.blue .check:checked ~ .track{
+    .box-shadow(inset 0 0 0 40px @blue);
+  }
+  &.mint .check:checked ~ .track{
+    .box-shadow(inset 0 0 0 40px @mint);
+  }
+  &.orange .check:checked ~ .track{
+    .box-shadow(inset 0 0 0 40px @orange);
+  }
+  &.red .check:checked ~ .track{
+    .box-shadow(inset 0 0 0 40px @red);
+  }
+  
+  .check {
+    position: absolute;
+    display: block;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    .square(100%);
+    .opacity(0);
+    z-index: 6;
+    &:checked ~ .track{
+      .box-shadow(inset 0 0 0 40px @green);
+    }
+    &:checked ~ .switch{
+      right: 2px;
+      left: 28px;
+      transition: .4s ease;
+      transition-property: left, right;
+      transition-delay: .05s, 0s;
+    }
+  }
+
+  .switch {
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    bottom: 2px;
+    right: 28px;
+    background-color: #fff;
+    .border-radius(36px);
+    z-index: 1;
+    transition: .4s ease;
+    transition-property: left, right;
+    transition-delay: 0s, .05s;
+    .box-shadow(0 1px 2px rgba(0,0,0,.2));
+  }
+
+  .track {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    transition: .4s ease;
+    .border-radius(40px);
+  }
+}
+
+

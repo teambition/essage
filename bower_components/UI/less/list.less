@@ -1,0 +1,98 @@
+//
+// lists
+// --------------------------------------------------
+
+.list > li {
+  position: relative;
+  line-height: @listItemHeight;
+  .clearfix();
+}
+
+.list > li > a {
+  display: block;
+  cursor: pointer;
+  padding: 5px 15px;
+  text-decoration: none;
+  color: @dropdownLinkColor;
+  .text-overflow();
+}
+
+.list > li:first-child > a {
+  margin-top: 5px;
+}
+
+.list > li:last-child > a{
+  margin-bottom: 5px;
+}
+
+.list > li:hover > a,
+.list > li:focus > a {
+  text-decoration: none;
+  color: @dropdownLinkColorHover;
+  background-color: @dropdownBackgroundHover;
+}
+
+.list.list-inverse > li:hover > a,
+.list.list-inverse > li:focus > a {
+  background-color: transparent;
+}
+
+.list > li > a > .avatar,
+.list > li > a > .icon {
+  margin-right: 10px;
+}
+
+.list .list-divider {
+  border-top: 1px solid @lightDivideLineColor;
+  margin: 5px 0;
+}
+
+.list .transparent-divider {
+  margin-top: 5px;
+}
+
+// Inverse List Style
+.list.list-inverse .list-divider {
+  margin: 5px 0;
+  border-top: 1px solid rgb(40, 40, 40);
+}
+
+.list.list-inverse > li > a {
+  color: @inverseListLink;
+}
+
+.list.list-inverse > li:hover > a,
+.list.list-inverse > li:focus > a,
+.list.list-inverse > li.active > a {
+  color: @inverseListLinkHover;
+  .avatar, .icon {
+    .opacity(100) !important;
+  }
+}
+
+.list.list-inverse > li > a > .avatar.dim,
+.list.list-inverse > li > a > .icon.dim {
+  .opacity(40);
+}
+
+.list.list-inverse.dropdown > li:hover > a {
+  background-color: @inverseListLinkBackgroundHover;
+}
+
+.list.list-inverse.dropdown > li.gray > a {
+  background-color: #3c3c3c;
+}
+
+.list.list-inverse.dropdown > li.gray:hover > a {
+  background-color: #454545;
+}
+
+// Tab Lists
+
+.list.list-tabs > li {
+  line-height: @listTabItemHeight;
+}
+
+.list.list-tabs > li > a {
+  overflow: visible;
+}

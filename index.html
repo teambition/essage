@@ -34,6 +34,7 @@
   }
   </style>
   <link rel="stylesheet" href="src/essage.css"/>
+  <link rel="stylesheet" type="text/css" href="bower_components/UI/docs/assets/css/teambition-ui.css">
 </head>
 <body>
 <h1 id="title" class="com"><strong class="typ">Essage</strong> - elegant way to display tips/message</h1>
@@ -88,14 +89,14 @@ Essage.show({
 
   $auto.onclick = function() {
     Essage.show({
-      message: 'the message will automaticlly disppear after 2 seconds...',
+      message: '<span class="icon icon-cloud-warning"></span> the message will automaticlly disppear after 2 seconds...',
       status: 'warning'
     }, 2000);
   };
 
   $bottom.onclick = function() {
     Essage.show({
-      message: 'hi, hi, im here',
+      message: '<span class="icon icon-cloud-error"></span> hi, hi, im here',
       placement: 'bottom',
       status: 'error'
     });
@@ -103,7 +104,7 @@ Essage.show({
 
   $status.onclick = function() {
     Essage.show({
-      message: 'o:, classname is changed.',
+      message: '<span class="icon icon-cloud-check"></span> o:, classname is changed.',
       status: 'success'
     });
   };

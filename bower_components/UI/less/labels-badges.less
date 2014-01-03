@@ -1,0 +1,153 @@
+//
+// Labels and badges
+// --------------------------------------------------
+
+// Base classes
+.label,
+.badge {
+  display: inline-block;
+  padding: @padding-mini-vertical @padding-mini-horizontal;
+  font-size: @fontSizeMini;
+  line-height: 14px; // ensure proper line-height if floated
+  color: @grayTextColor;
+  vertical-align: baseline;
+  white-space: nowrap;
+  background-color: darken(@grayLighter, 5%);
+}
+
+// Set unique padding and border-radii
+.label {
+  .border-radius(@borderRadiusSmall);
+}
+
+.badge {
+  padding-left: 9px;
+  padding-right: 9px;
+  .border-radius(9px);
+}
+
+// Empty labels/badges collapse
+.label,
+.badge {
+  &:empty {
+    display: none;
+  }
+}
+
+// Label with icon
+.label > i {
+  margin-right: @padding-mini-horizontal;
+}
+
+// Multiple labels together
+
+.label + .label {
+  margin-left: 5px;
+}
+
+// Hover/focus state, but only for links
+a {
+  &.label:hover,
+  &.label:focus,
+  &.badge:hover,
+  &.badge:focus {
+    color: @white;
+    text-decoration: none;
+    cursor: pointer;
+  }
+}
+
+// Colors
+// Only give background-color difference to links (and to simplify, we don't qualifty with `a` but [href] attribute)
+.label,
+.badge {
+  // Important (red)
+  &-important {
+    color: @white;
+    background-color: @errorText;
+  }
+  &-important[href] {
+    color: @white;
+    background-color: darken(@errorText, 10%);
+  }
+  // Warnings (orange)
+  &-warning {
+    color: @white;
+    background-color: @orange;
+  }
+  &-warning[href] {
+    color: @white;
+    background-color: darken(@orange, 10%);
+  }
+  // Success (green)
+  &-success {
+    color: @white;
+    background-color: @successText;
+  }
+  &-success[href] {
+    color: @white;
+    background-color: darken(@successText, 10%);
+  }
+  // Info (turquoise)
+  &-info {
+    color: @white;
+    background-color: @mint;
+  }
+  &-info[href] {
+    color: @white;
+    background-color: darken(@mint, 10%);
+  }
+  // Inverse (black)
+  &-inverse {
+    color: @white;
+    background-color: @grayDark;
+  }
+  &-inverse[href] {
+    color: @white;
+    background-color: darken(@grayDark, 10%);
+  }
+}
+
+// Quick fix for labels/badges in buttons
+.btn {
+  .label,
+  .badge {
+    position: relative;
+    top: -1px;
+  }
+}
+
+.btn-mini {
+  .label,
+  .badge {
+    top: 0;
+  }
+}
+
+// Image Label
+
+.image-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
+  height: 35px;
+  line-height: 35px;
+  font-size: @fontSizeSmall;
+  color: @white;
+  .text-overflow();
+  #gradient > .vertical(rgba(0,0,0,0), rgba(0,0,0,0.5));
+  background-color: transparent;
+
+  &.image-label-large {
+    line-height: 20px;
+    padding: 65px 15px 0 15px;
+  }
+
+  &.image-label-small {
+    height: 20px;
+    line-height: 20px;
+    padding-left: 5px;
+  }
+}

@@ -1,0 +1,154 @@
+// //
+// // Sprites
+// // --------------------------------------------------
+
+// teambition logp
+// ----------------
+.teambition-logo {
+  display: inline-block;
+  .size(22px,144px);
+  background-image: url("@{uiImages}");
+  background-repeat: no-repeat;
+  background-position: 0 -36px;
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    background-image: url('@{uiRetinaImages}');
+    .background-size(200px 378px);
+  }
+}
+
+.teambition-logo-white {
+  display: inline-block;
+  .size(22px,144px);
+  background-image: url("@{uiImages}");
+  background-repeat: no-repeat;
+  background-position: 0 -78px;
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    background-image: url('@{uiRetinaImages}');
+    .background-size(200px 378px);
+  }
+}
+
+// board template style icon
+.design-type-icon,
+.develop-type-icon,
+.support-type-icon{
+  display: inline-block;
+  .square(28px);
+  background-image: url("@{uiImages}");
+  background-repeat: no-repeat;
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    background-image: url('@{uiRetinaImages}');
+    .background-size(200px 378px);
+  }
+}
+.design-type-icon{
+  background-position: 0 -350px;
+}
+.develop-type-icon{
+  background-position: -28px -350px;
+}
+.support-type-icon{
+  background-position: -56px -350px;
+}
+
+// icons for handlerset
+// --------------------
+[class^="handler-icon-"],
+[class*=" handler-icon-"] {
+  display: inline-block;
+  margin: -10px;
+  .size(40px, 50px);
+  background-image: url('@{uiImages}');
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    background-image: url("@{uiRetinaImages}");
+    .background-size(200px 378px);
+  }
+}
+
+.handler-icon-involve {
+  background-position: 0 -230px;
+}
+
+.handler-icon-file {
+  background-position: -50px -230px;
+}
+
+.handler-icon-more {
+  background-position: -100px -230px;
+}
+
+.handler-icon-time {
+  background-position: -150px -230px;
+}
+
+// icons for task detail (position-x: 22*n+2)
+// ---------------------
+[class^="detail-icon-"],
+[class*=" detail-icon-"] {
+  display: inline-block;
+  .size(20px, 20px);
+  background-image: url('@{uiImages}');
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    background-image: url("@{uiRetinaImages}");
+    .background-size(200px 378px);
+  }
+}
+
+.detail-icon-list {
+  background-position: -2px -280px;
+}
+
+.detail-icon-due {
+  background-position: -24px -280px;
+}
+
+.detail-icon-stage {
+  background-position: -46px -280px;
+}
+
+.detail-icon-pencil {
+  background-position: -68px -280px;
+}
+
+.detail-icon-users-white {
+  background-position: -90px -280px;
+}
+
+.detail-icon-wall-white {
+  background-position: -112px -280px;
+}
+
+.detail-icon-board-white {
+  background-position: -134px -280px;
+}
+
+.detail-icon-library-white {
+  background-position: -156px -280px;
+}
+
+// other icons
+
+.icon-involve{
+  .square(24px);
+  background-image: url('@{uiImages}');
+  background-position: -13px -238px;
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    background-image: url("@{uiRetinaImages}");
+    .background-size(200px 378px);
+  }
+}
+
+.icon-circle-plus-large {
+  .square(36px);
+  background-image: url('@{uiImages}');
+  background-position: 0 -310px;
+  &:hover {
+    background-position: -36px -310px;
+  }
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    background-image: url("@{uiRetinaImages}");
+    .background-size(200px 378px);
+  }
+}
+
+

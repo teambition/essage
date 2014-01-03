@@ -1,0 +1,15 @@
+{
+    "validthis": true,
+    "shadow"   : true,
+    "sub"      : true,
+    "loopfunc" : true,
+    "laxcomma" : true,
+    "laxbreak" : true,
+    "browser"  : true,
+    "eqnull"   : true,
+    "debug"    : true,
+    "devel"    : true,
+    "boss"     : true,
+    "expr"     : true,
+    "asi"      : true
+}
