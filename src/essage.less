@@ -3,12 +3,13 @@
   position: fixed;
   _position: absolute;
   z-index: 10010;
+  width: 300px;
   background: #fff;
   background: rgb(255,255,255);
   color: #666;
-  text-align: center;
+  text-align: left;
   line-height: 1.8;
-  padding: 10px 20px 10px 30px;
+  padding: 10px 20px 10px 60px;
   *padding: 10px 0;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -41,6 +42,14 @@
   color: #dc584b;
 }
 
+.essage-info {
+  background: #d9edf7;
+  background: rgb(217,237,247);
+  border-bottom-color: #b7def1;
+  border-top-color: #b7def1;
+  color: #38a2d7;
+}
+
 .essage-warning {
   background: #fcf8e3;
   background: rgb(252, 248, 227);
@@ -50,16 +59,17 @@
 }
 
 .essage .icon{
-  margin-right: 20px;
-  line-height: 16px;
-  font-size: 28px;
-  vertical-align: text-top;
+  position: absolute;
+  top: 15px;
+  left: 20px;
+  line-height: 20px;
+  font-size: 25px;
 }
 
 .essage .close {
   font: 400 normal 22px/1.3 arial, sans-serif;
   float: right;
-  margin-left: 20px;
+  margin-left: 10px;
   margin-top: 2px;
   *margin-right: 15px;
   display: inline;
