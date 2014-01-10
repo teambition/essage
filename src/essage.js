@@ -33,6 +33,10 @@
     this.el.className = 'essage';
 
     this.close = '<span class="close">&times;</span>';
+    this.error = '<span class="icon icon-circle-error"></span>';
+    this.warning = '<span class="icon icon-circle-warning"></span>';
+    this.success = '<span class="icon icon-circle-check"></span>';
+    this.info = '<span class="icon icon-circle-info"></span>'
 
     this.el.onclick = function(e) {
       var e = e || win.event
@@ -52,6 +56,9 @@
   Essage.prototype._height = function() {
     return this.el.offsetHeight || this.el.clientHeight;
   };
+  Essage.prototype._width = function () {
+    return this.el.offsetWidth || this.el.clientWidth;
+  }
 
   Essage.prototype._class = function(classname, isRemove) {
     var el = this.el;
@@ -96,9 +103,11 @@
       , interval, timeout;
 
     // set message
-    el.innerHTML = this.close + this.config.message;
+    el.innerHTML = this.close + this[this.config.status] + ' ' + this.config.message;
 
     var top = -this._height() - 50;
+    var marginLeft = - this._width()/2;
+    this.el.style.marginLeft = marginLeft + 'px';
 
     // disppear automaticlly
     if(this._timeout) clearTimeout(this._timeout);

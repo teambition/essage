@@ -84,19 +84,22 @@ Essage.show({
     , $bottom = $('bottom')
 
   $show.onclick = function() {
-    Essage.show('hello, im a message.');
+    Essage.show({
+      message: 'hello, im a message.',
+      status: 'info'
+    });
   };
 
   $auto.onclick = function() {
     Essage.show({
-      message: '<span class="icon icon-circle-warning"></span> the message will automaticlly disppear after 2 seconds...',
+      message: 'the message will automaticlly disppear after 2 seconds...',
       status: 'warning'
     }, 2000);
   };
 
   $bottom.onclick = function() {
     Essage.show({
-      message: '<span class="icon icon-circle-error"></span> hi, hi, im here',
+      message: 'hi, hi, im here',
       placement: 'bottom',
       status: 'error'
     });
@@ -104,7 +107,7 @@ Essage.show({
 
   $status.onclick = function() {
     Essage.show({
-      message: '<span class="icon icon-circle-check"></span> o:, classname is changed.classname is changed.classname is changed.',
+      message: 'o:, classname is changed.classname is changed.classname is changed.',
       status: 'success'
     });
   };
