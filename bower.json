@@ -1,6 +1,6 @@
 {
   "name": "tb.essage",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "homepage": "https://github.com/teambition/essage",
   "authors": [
     "Qi Junyuan <conan007ai@gmail.com>"
@@ -10,9 +10,6 @@
   "keywords": [
     "message"
   ],
-  "dependencies": {
-    "UI": "git@github.com:teambition/UI.git"
-  },
   "license": "MIT",
   "ignore": [
     "**/.*",
