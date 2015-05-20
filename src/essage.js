@@ -23,6 +23,8 @@
 
   var Essage = function() {
     var self = this;
+    
+    this.isShowed = false;
 
     this.defaults = {
       placement: 'top',
@@ -101,6 +103,11 @@
     var el = this.el
       , self = this.set(message)
       , interval, timeout;
+      
+    if(self.isShowed) {
+      return;
+    }
+    self.isShowed = true;
 
     // set message
     el.innerHTML = this.close + this[this.config.status] + ' ' + this.config.message;
@@ -133,9 +140,16 @@
       , dest = -this._height() - 50
       , self = this
       , interval;
+      
+    if(!self.isShowed) {
+      return;
+    }
 
     interval = setInterval(function() {
-      if(top === dest) return interval && clearInterval(interval);
+      if(top === dest) {
+        self.isShowed = false;
+        return interval && clearInterval(interval);
+      }
       self.el.style[self.config.placement] = (top -= 1) + 'px';
     }, 1);
     return this;
