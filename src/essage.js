@@ -23,7 +23,7 @@
 
   var Essage = function() {
     var self = this;
-    
+
     this.isShowed = false;
 
     this.defaults = {
@@ -103,7 +103,7 @@
     var el = this.el
       , self = this.set(message)
       , interval, timeout;
-      
+
     if(self.isShowed) {
       return;
     }
@@ -140,7 +140,7 @@
       , dest = -this._height() - 50
       , self = this
       , interval;
-      
+
     if(!self.isShowed) {
       return;
     }
