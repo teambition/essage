@@ -102,12 +102,10 @@
   Essage.prototype.show = function(message, duration) {
     var el = this.el
       , self = this.set(message)
-      , interval, timeout;
+      , timeout;
 
-    if(self.isShowed) {
-      return;
-    }
-    self.isShowed = true;
+    if(this.isShowed) return;
+    this.isShowed = true;
 
     // set message
     el.innerHTML = this.close + this[this.config.status] + ' ' + this.config.message;
@@ -124,34 +122,19 @@
       }, duration);
     });
 
-    interval = setInterval(function() {
-      if(top === 20) {
-        self._timeout = timeout && timeout();
-        return clearInterval(interval);
-      }
-      el.style[self.config.placement] = (top += 1) + 'px';
-    }, 1);
+    el.style[this.config.placement] = '20px';
 
     return this;
   };
 
   Essage.prototype.hide = function() {
-    var top = +this.el.style[this.config.placement].slice(0, -2)
-      , dest = -this._height() - 50
-      , self = this
-      , interval;
+    var dest = -this._height() - 50;
 
-    if(!self.isShowed) {
-      return;
-    }
+    if(!this.isShowed) return;
+    this.isShowed = false;
 
-    interval = setInterval(function() {
-      if(top === dest) {
-        self.isShowed = false;
-        return interval && clearInterval(interval);
-      }
-      self.el.style[self.config.placement] = (top -= 1) + 'px';
-    }, 1);
+    this.el.style[this.config.placement] = dest + 'px';
+
     return this;
   }
 

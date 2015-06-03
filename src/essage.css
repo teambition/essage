@@ -1,7 +1,6 @@
 .essage {
   font-size: 16px;
   position: fixed;
-  _position: absolute;
   z-index: 10010;
   max-width: 700px;
   background: #fff;
@@ -10,7 +9,6 @@
   text-align: left;
   line-height: 1.8;
   padding: 10px 20px 10px 50px;
-  *padding: 10px 0;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -ms-box-sizing: border-box;
@@ -24,6 +22,11 @@
   box-shadow: 0 7px 21px rgba(0, 0, 0, 0.21);
   -moz-box-shadow: 0 7px 21px rgba(0, 0, 0, 0.21);
   -webkit-box-shadow: 0 7px 21px rgba(0, 0, 0, 0.21);
+  transition: top 318ms linear;
+  -webkit-transition: top 318ms linear;
+  -moz-transition: top 318ms linear;
+  -ms-transition: top 318ms linear;
+  -o-transition: top 318ms linear;
 }
 .essage-success {
   border-bottom-color: #bfd5a9;
