@@ -101,8 +101,7 @@
 
   Essage.prototype.show = function(message, duration) {
     var el = this.el
-      , self = this.set(message)
-      , timeout;
+      , self = this.set(message);
 
     if(this.isShowed) return;
     this.isShowed = true;
@@ -116,11 +115,10 @@
 
     // disppear automaticlly
     if(this._timeout) clearTimeout(this._timeout);
-    duration && (timeout = function() {
-      return setTimeout(function() {
+    duration && (this._timeout = setTimeout(function() {
         self.hide();
-      }, duration);
-    });
+      }, duration)
+    );
 
     el.style[this.config.placement] = '20px';
 
