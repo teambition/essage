@@ -1,0 +1,22 @@
+{
+  "name": "tb.essage",
+  "version": "0.1.2",
+  "description": "A message components for teambition's web applications",
+  "main": "src/essage.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/teambition/essage.git"
+  },
+  "keywords": [
+    "message"
+  ],
+  "author": "Qi Junyuan <conan007ai@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/teambition/essage/issues"
+  },
+  "homepage": "https://github.com/teambition/essage#readme"
+}
