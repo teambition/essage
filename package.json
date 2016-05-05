@@ -1,6 +1,6 @@
 {
   "name": "tb.essage",
-  "version": "0.1.2",
+  "version": "1.0.0",
   "description": "A message components for teambition's web applications",
   "main": "src/essage.js",
   "scripts": {
