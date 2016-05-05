@@ -1,5 +1,6 @@
 /* Essage - a more elegant way to show message
  * https://github.com/sofish/essage
+ * modified by Teambition, https://github.com/teambition/essage
  */
 ~function(win, doc) {
 
@@ -28,7 +29,8 @@
 
     this.defaults = {
       placement: 'top',
-      status: 'normal'
+      status: 'normal',
+      duration: -1
     }
 
     this.el = doc.createElement('div');
@@ -99,11 +101,15 @@
     return this;
   };
 
-  Essage.prototype.show = function(message, duration) {
+  Essage.prototype.show = function(message) {
     var el = this.el
-      , self = this.set(message);
+    var self = null;
 
-    if(this.isShowed) return;
+    if (this.isShowed)
+      return;
+
+    self = this.set(message);
+
     this.isShowed = true;
 
     // set message
@@ -114,11 +120,14 @@
     this.el.style.marginLeft = marginLeft + 'px';
 
     // disppear automaticlly
-    if(this._timeout) clearTimeout(this._timeout);
-    duration && (this._timeout = setTimeout(function() {
+    if (this._timeout) {
+      clearTimeout(this._timeout);
+    }
+    if (self.config.duration > 0) {
+      this._timeout = setTimeout(function() {
         self.hide();
-      }, duration)
-    );
+      }, self.config.duration);
+    }
 
     el.style[this.config.placement] = '20px';
 
@@ -128,12 +137,20 @@
   Essage.prototype.hide = function() {
     var dest = -this._height() - 50;
 
-    if(!this.isShowed) return;
+    if (!this.isShowed)
+      return;
+
     this.isShowed = false;
 
     this.el.style[this.config.placement] = dest + 'px';
 
     return this;
+  }
+
+  Essage.prototype.default = function(config) {
+    if (typeof config.duration === 'number') {
+      this.defaults.duration = config.duration;
+    }
   }
 
   // export to window

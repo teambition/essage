@@ -25,24 +25,23 @@ Place the js/css file on you page, and use the `Essage` object to manage your me
 
 ### 2. API: `show` or `hide`
 
-1. **show(message, timeout)** show message
+**show(message)** show message
 
  ```js
  // The argument `message` can be html(string).
  Essage.show('<b>hello</b>, im a message.');
  ```
 
- **auto hide**: If `timeout` {Number} is specific, the message will hide automaticlly after `timeout` (ms).
+**hide()** hide message
 
  ```js
- // `timeout` should be a number
- Essage.show('i willl hide automaticlly after 2 seconds', 2000);
+ Essage.hide();
  ```
 
- **config**: And, the `message` can be an object:
+**config**: provide configurations
 
  ```js
- var message = {
+ var config = {
    message: 'message body',
 
    // add class `essage-success` to the container
@@ -51,15 +50,20 @@ Place the js/css file on you page, and use the `Essage` object to manage your me
 
    // the placement can be `top` or `bottom`, by default is `top`
    placement: 'bottom'
+
+   // duration in ms
+   // provide _negative_ number to always show if default duration is set
+   duration: 1000
  };
 
- Essage.show(message, 3000);
+ Essage.show(config);
  ```
 
-2. **hide()** hide message
+**default()** set default duration
 
  ```js
- Essage.hide();
+ Essage.default({duration: 3000});
+ Essage.show('message');
  ```
 
 ### 3. MIT licence
