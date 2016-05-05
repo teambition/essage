@@ -47,10 +47,12 @@ Essage.show('<b>hello</b>, im a message.');
 // hide message
 Essage.hide();
 
-// hide automaticlly after 2000
-Essage.show('message', 2000);
+// hide automaticlly after 1000
+Essage.show({
+  message: 'message'
+  duration: 1000
+});
 
-// `message` can be an object (config)
 Essage.show({
   message: 'message body',
 
@@ -61,6 +63,16 @@ Essage.show({
   // the placement can be `top` or `bottom`, by default is `top`
   placement: 'bottom'
 });
+
+// config default duration
+Essage.default({duration: 3000})
+
+// if the default duration is set,
+// then provide a negative duration to always show
+Essage.show({
+  message: 'message'
+  duration: -1
+})
 </pre>
 
 <div id="actions">
@@ -69,6 +81,7 @@ Essage.show({
   <span id="bottom">show at bottom</span>
   <span id="status">show with status</span>
   <span id="hide">hide</span>
+  <span id="default">Toggle default duration</span>
 </div>
 
 <a id="fork" href="https://github.com/teambition/essage" target="_blank"><img
@@ -82,6 +95,7 @@ Essage.show({
     , $status = $('status')
     , $auto = $('auto')
     , $bottom = $('bottom')
+    , $default = $('default')
 
   $show.onclick = function() {
     Essage.show({
@@ -92,9 +106,10 @@ Essage.show({
 
   $auto.onclick = function() {
     Essage.show({
-      message: 'the message will automaticlly disppear after 2 seconds...',
-      status: 'warning'
-    }, 2000);
+      message: 'the message will automaticlly disppear after 1 second...',
+      status: 'warning',
+      duration: 1000
+    });
   };
 
   $bottom.onclick = function() {
@@ -115,6 +130,12 @@ Essage.show({
   $hide.onclick = function() {
     Essage.hide();
   };
+
+  $default.onclick = function () {
+    Essage.default({
+      duration: (Essage.defaults.duration > 0 ? -1 : 3000)
+    })
+  }
 </script>
 
 <!-- ignore me, syntax highlight -->
