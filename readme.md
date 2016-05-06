@@ -4,7 +4,7 @@
 
 -------------------------
 
-- Live demo [http://sofish.github.io/essage/](http://sofish.github.io/essage/)
+- Live demo [http://teambition.github.io/essage/](http://teambition.github.io/essage/)
 - Browser support: tested under IE6+, Firefox, Chrome, Safari, Mobile Safari
 - Light, Elegant, No hard dependency
 
