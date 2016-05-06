@@ -1,5 +1,6 @@
 /* Essage - a more elegant way to show message
  * https://github.com/sofish/essage
+ * modified by Teambition, https://github.com/teambition/essage
  */
 ~function(win, doc) {
 
@@ -24,15 +25,22 @@
   var Essage = function() {
     var self = this;
 
+    this.isShowed = false;
+
     this.defaults = {
       placement: 'top',
-      status: 'normal'
+      status: 'normal',
+      duration: -1
     }
 
     this.el = doc.createElement('div');
     this.el.className = 'essage';
 
     this.close = '<span class="close">&times;</span>';
+    this.error = '<span class="icon icon-circle-error"></span>';
+    this.warning = '<span class="icon icon-circle-warning"></span>';
+    this.success = '<span class="icon icon-circle-check"></span>';
+    this.info = '<span class="icon icon-circle-info"></span>'
 
     this.el.onclick = function(e) {
       var e = e || win.event
@@ -52,6 +60,9 @@
   Essage.prototype._height = function() {
     return this.el.offsetHeight || this.el.clientHeight;
   };
+  Essage.prototype._width = function () {
+    return this.el.offsetWidth || this.el.clientWidth;
+  }
 
   Essage.prototype._class = function(classname, isRemove) {
     var el = this.el;
@@ -90,46 +101,56 @@
     return this;
   };
 
-  Essage.prototype.show = function(message, duration) {
+  Essage.prototype.show = function(message) {
     var el = this.el
-      , self = this.set(message)
-      , interval, timeout;
+    var self = null;
+
+    if (this.isShowed)
+      return;
+
+    self = this.set(message);
+
+    this.isShowed = true;
 
     // set message
-    el.innerHTML = this.close + this.config.message;
+    el.innerHTML = this.close + this[this.config.status] + ' ' + this.config.message;
 
-    var top = -this._height();
+    var top = -this._height() - 50;
+    var marginLeft = - this._width()/2;
+    this.el.style.marginLeft = marginLeft + 'px';
 
     // disppear automaticlly
-    if(this._timeout) clearTimeout(this._timeout);
-    duration && (timeout = function() {
-      return setTimeout(function() {
+    if (this._timeout) {
+      clearTimeout(this._timeout);
+    }
+    if (self.config.duration > 0) {
+      this._timeout = setTimeout(function() {
         self.hide();
-      }, duration);
-    });
+      }, self.config.duration);
+    }
 
-    interval = setInterval(function() {
-      if(top === 0) {
-        self._timeout = timeout && timeout();
-        return clearInterval(interval);
-      }
-      el.style[self.config.placement] = (top += 1) + 'px';
-    }, 3);
+    el.style[this.config.placement] = '20px';
 
     return this;
   };
 
   Essage.prototype.hide = function() {
-    var top = +this.el.style[this.config.placement].slice(0, -2)
-      , dest = -this._height()
-      , self = this
-      , interval;
+    var dest = -this._height() - 50;
 
-    interval = setInterval(function() {
-      if(top === dest) return interval && clearInterval(interval);
-      self.el.style[self.config.placement] = (top -= 1) + 'px';
-    }, 3);
+    if (!this.isShowed)
+      return;
+
+    this.isShowed = false;
+
+    this.el.style[this.config.placement] = dest + 'px';
+
     return this;
+  }
+
+  Essage.prototype.default = function(config) {
+    if (typeof config.duration === 'number') {
+      this.defaults.duration = config.duration;
+    }
   }
 
   // export to window
